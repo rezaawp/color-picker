@@ -1,1 +1,65 @@
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker</title>
+  </head>
+  <body>
+    <h1>Pilih Warna</h1>
+    <label>Red : <span id="valueRed">0</span></label>
+    <input type="range" id="red" min="0" max="257" />
+
+    <button onclick="berubah()" class="btn" id="btn">klik me!</button>
+    <br /><br />
+
+    <label>Green :<span id="valueGreen">0</span></label>
+    <input type="range" class="green" id="green" min="0" max="257" />
+    
+    <br />
+    <label>Blue :<span id="valueBlue">0</span></label>
+    <input type="range" class="green" id="blue" min="0" max="257" />
+
+    <script>
+      let ubahWarna = document.getElementById("red");
+      const valuered = document.getElementById("valueRed");
+      const valueGreen = document.querySelector("#valueGreen");
+      const valueBlue = document.querySelector("#valueBlue");
+
+      ubahWarna.addEventListener("input", function () {
+        let warna = ubahWarna.value;
+        let warnaRGB = `rgb(${warna}, 100, 100)`;
+        document.body.style.backgroundColor = warnaRGB;
+        valuered.textContent = warna;
+      });
+
+      function berubah() {
+        document.body.style.backgroundColor = "red";
+      }
+
+      let gantiWarna = document.getElementById("green");
+      gantiWarna.addEventListener("input", () => {});
+      let ubahHijau = document.getElementById("green");
+
+      // ini adalah input green ketiak berubah
+      ubahHijau.addEventListener("input", function () {
+        let hijau = ubahHijau.value;
+        let merah = ubahWarna.value;
+        let warnaG = `rgb(${merah}, ${hijau}, 100)`;
+        document.body.style.backgroundColor = warnaG;
+        valueGreen.textContent = hijau;
+      });
+
+      let inputBlue = document.getElementById("blue");
+
+      inputBlue.addEventListener("input", function () {
+        let hijau = ubahHijau.value;
+        let merah = ubahWarna.value;
+        let blue = inputBlue.value;
+        document.body.style.backgroundColor = `rgb(${merah}, ${hijau}, ${blue})`;
+        valueBlue.textContent = blue;
+      });
+    </script>
+  </body>
+</html>
